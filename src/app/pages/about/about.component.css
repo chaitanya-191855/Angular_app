@@ -1,0 +1,12 @@
+.header{
+   padding:10px 10px;
+   font-weight: bold;
+   color:var(--primary-color);
+}
+.formcontrol{
+   padding: 10px 10px;
+}
+.dataBody{
+   font-size: 18px;
+   padding: 5px 10px;
+}
