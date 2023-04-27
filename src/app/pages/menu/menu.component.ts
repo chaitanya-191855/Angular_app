@@ -12,4 +12,9 @@ export class MenuComponent {
   ngOnInit(): void{
     this.foodData = this.service.foodDetails;
   }
+  searchText: string = "";
+  onSearchTextEntered(searchVaue:string) {
+    this.searchText = searchVaue;
+    // console.log(this.searchText)
+  }
 }

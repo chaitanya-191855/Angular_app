@@ -12,6 +12,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { MenupageComponent } from './pages/menupage/menupage.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchBarComponent } from './pages/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MenuComponent,
     AboutComponent,
     ContactComponent,
-    MenupageComponent
+    MenupageComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
