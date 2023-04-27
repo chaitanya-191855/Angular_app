@@ -14,7 +14,6 @@ export class ContactComponent {
     e.preventDefault()
     emailjs.sendForm('service_a9y4g2b', 'template_hchc1py', e.target as HTMLFormElement, 'qXG5XVRFXE6inUn93')
       .then((result: EmailJSResponseStatus) => {
-        alert("successfull filled")
         this.router.navigateByUrl('');
         console.log(result.text);
       }, (error) => {

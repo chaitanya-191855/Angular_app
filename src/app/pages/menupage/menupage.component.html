@@ -1,6 +1,7 @@
+
 <div class="container">
-   <div class="row">
-      <div class="col-lg-6" *ngIf="menuData">
+   <div class="row" *ngIf="menuData">
+      <div class="col-lg-6">
          <a routerLink="../../menu" class="btn btn-sm btn-dark mb-3 ">Back</a>
          <img src="{{menuData[0].foodImg}}" width="100%" />
          <h1 class="mt-3">{{menuData[0].foodName}}</h1>
@@ -9,22 +10,22 @@
       </div>
       <div class="col-lg-6 col-12">
          <h1>Enter Your Details</h1>
-         <form>
-            <div class="col-lg-6 mt-2 mb-2" style="width:70%">
-               <input type="text" class="form-control" placeholder="Enter Your Full Name" />
+         <form class="contact-form" (submit)="sendEmail($event)">
+            <div class=" col-lg-6 mt-2 mb-2" style="width:90%;margin-top: 10px;">
+               <input name="name" type="text" class="form-control" placeholder="Enter Your Full Name" />
             </div>
-            <div class="col-lg-6 mt-2 mb-2" style="width:70%">
-               <input type="text" class="form-control" placeholder="Enter Your Mobile" />
+            <div class="col-lg-6 mt-2 mb-2" style="width:90%;margin-top: 10px;">
+               <input name="number" type="text" class="form-control" placeholder="Enter Your Mobile" />
             </div>
-            <div class="col-lg-6 mt-2 mb-2" style="width:70%">
-               <textarea class="form-control" placeholder="Enter Your Address"></textarea>
+            <div class="col-lg-6 mt-2 mb-2" style="width:90%;margin-top: 10px;">
+               <textarea name="address" class="form-control" placeholder="Enter Your Address"></textarea>
             </div>
-            <div class="col-lg-6 mt-2 mb-2" style="width:70%">
-               <button class="btn btn-md btn-dark mt-3">Place Order</button>
+            <div class="col-lg-6 mt-2 mb-2" style="width:90%;margin-top: 10px;">
+               <button class="btn btn-md btn-dark mt-3" type="submit"
+                  (click)="initializePayment(menuData[0].foodPrice)">{{menuData[0].foodprice}}Place
+                  Order</button>
             </div>
          </form>
-
-
       </div>
    </div>
 </div>
