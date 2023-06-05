@@ -2,6 +2,7 @@ import { Component ,OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OrderDetailsService } from 'src/app/services/order-details.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -11,9 +12,11 @@ import { Router } from '@angular/router';
 })
 export class MenupageComponent {
   constructor(private param: ActivatedRoute, private service: OrderDetailsService,private router: Router) { }
+  orderData: any;
   getMenuId: any;
   menuData: any;
   paymentHandler: any = null;
+  stripeAPIKey: any = 'pk_test_51N1Cx7SGRgKROCaGXHctqmN3VcUVO6d7O2SjS8eHYtmdjfmuCXxry1C8vYB4VjTFQGIKmwC6L5FfHLWHTf28HYK400GwFB4xYo';
   ngOnInit(): void {
     this.getMenuId = this.param.snapshot.paramMap.get('id');
     if (this.getMenuId) {
@@ -21,21 +24,22 @@ export class MenupageComponent {
         return value.id == this.getMenuId;
       });
       console.log(this.menuData, 'menudata>>');
-      this.invokeStripe();
+      this.invokeStripe()
     }
   }
-  async sendEmail(e: Event) {
-    
+  
+  registerUser(form: NgForm) {
+    this.orderData = form.value;
   }
   initializePayment(amount: number) {
     const paymentHandler = (<any>window).StripeCheckout.configure({
-      key: 'pk_test_51N1Cx7SGRgKROCaGXHctqmN3VcUVO6d7O2SjS8eHYtmdjfmuCXxry1C8vYB4VjTFQGIKmwC6L5FfHLWHTf28HYK400GwFB4xYo',
+      key: this.stripeAPIKey,
       locale: 'auto',
       token: function (stripeToken: any) {
         console.log({ stripeToken })
       }
     });
-  
+
     paymentHandler.open({
       name: 'Cloud-Kitchen',
       description: 'Buying your selected food',
@@ -51,7 +55,7 @@ export class MenupageComponent {
       script.src = "https://checkout.stripe.com/checkout.js";
       script.onload = () => {
         this.paymentHandler = (<any>window).StripeCheckout.configure({
-          key: 'pk_test_51N1Cx7SGRgKROCaGXHctqmN3VcUVO6d7O2SjS8eHYtmdjfmuCXxry1C8vYB4VjTFQGIKmwC6L5FfHLWHTf28HYK400GwFB4xYo',
+          key:this.stripeAPIKey,
           locale: 'auto',
           token: function (stripeToken: any) {
             console.log(stripeToken)
@@ -60,6 +64,7 @@ export class MenupageComponent {
         });
       }
       window.document.body.appendChild(script);
+
     }
   }
 

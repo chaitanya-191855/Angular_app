@@ -7,7 +7,7 @@ export class OrderDetailsService {
 
   constructor() { }
 
-
+  orderDetails=[]
   foodDetails = [
     {
       id:1,

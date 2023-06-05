@@ -13,6 +13,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { MenupageComponent } from './pages/menupage/menupage.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchBarComponent } from './pages/search-bar/search-bar.component';
+import { OrderedPageComponent } from './pages/ordered-page/ordered-page.component';
+import { UsecaseComponent } from './pages/usecase/usecase.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { SearchBarComponent } from './pages/search-bar/search-bar.component';
     AboutComponent,
     ContactComponent,
     MenupageComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    OrderedPageComponent,
+    UsecaseComponent
   ],
   imports: [
     BrowserModule,

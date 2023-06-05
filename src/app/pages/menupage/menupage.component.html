@@ -9,15 +9,15 @@
       </div>
       <div class="col-lg-6 col-12">
          <h1>Enter Your Details</h1>
-         <form class="contact-form" (submit)="sendEmail($event)">
+         <form class="contact-form" #signupForm="ngForm" (ngSubmit)="registerUser(signupForm)">
             <div class=" col-lg-6 mt-2 mb-2" style="width:90%;margin-top: 10px;">
-               <input name="name" type="text" class="form-control" placeholder="Enter Your Full Name" />
+               <input name="name" type="text" class="form-control" placeholder="Enter Your Full Name" ngModel />
             </div>
             <div class="col-lg-6 mt-2 mb-2" style="width:90%;margin-top: 10px;">
-               <input name="number" type="text" class="form-control" placeholder="Enter Your Mobile" />
+               <input name="number" type="text" class="form-control" placeholder="Enter Your Mobile" ngModel />
             </div>
             <div class="col-lg-6 mt-2 mb-2" style="width:90%;margin-top: 10px;">
-               <textarea name="address" class="form-control" placeholder="Enter Your Address"></textarea>
+               <textarea name="address" class="form-control" placeholder="Enter Your Address" ngModel></textarea>
             </div>
             <div class="col-lg-6 mt-2 mb-2" style="width:90%;margin-top: 10px;">
                <button class="btn btn-md btn-dark mt-3" type="submit"

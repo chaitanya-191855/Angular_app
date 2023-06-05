@@ -13,7 +13,6 @@ export class MenuComponent {
   ngOnInit(): void{
     this.foodData = this.service.foodDetails;
     this.filteredData = this.service.foodDetails;
-    console.log(this.filteredData)
   }
   searchText: string = "";
   onSearchTextEntered(searchVaue:string) {
